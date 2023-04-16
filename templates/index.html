@@ -1,0 +1,191 @@
+<!-- HEADER -->
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cinemal</title>
+    <!-- FONTAWESOME-->
+        <script src="https://kit.fontawesome.com/c3b019000f.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<!-- BODY -->
+<body>
+<div class="page">
+
+    <!-- TITLE -->
+        <div id='title'><h1>Cinemal</h1></div>
+            <div class="text"><a href="{{ url_for('how_to') }}">How to Play</a></div>
+
+    <!-- CURRENT_FEEDBACK-->
+    {% if feedback_len > 0 %}
+        <div class="feedback">
+            {% for item in feedback %}
+                {% if item != "year_info" %}
+                    {% for list in feedback[item] %}
+                        <h5> {{list}} </h5>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+<!-- MIDDLE COLUMN !-->
+
+    <div class="row" id="main-content">
+
+    <!-- HISTORIC FEEDBACK !-->
+
+        <div class="col-3" id="historic_feedback">
+            <h5>Identified</h5>
+
+            <div class="historic_feedback">
+                <div class="actors_identified">
+                    <h5>Actors</h5>
+                    {% for actor_identified in actors_identified %}
+                        <p>{{actor_identified}}</p>
+                    {% endfor %}
+                </div>
+                <div class="directors_identified">
+                    <h5>Directors</h5>
+                    {% for director_identified in directors_identified %}
+                        <p>{{director_identified}}</p>
+                    {% endfor %}
+                </div>
+                <div class="writers_identified">
+                    <h5>Writers</h5>
+                    {% for writer_identified in writers_identified %}
+                        <p>{{writer_identified}}</p>
+                    {% endfor %}
+                </div>
+                <div class="studios_identified">
+                    <h5>Studios</h5>
+                    {% for studio_identified in studios_identified %}
+                        <p>{{studio_identified}}</p>
+                    {% endfor %}
+                </div>
+                <div class="release_year">
+                    <h5>Release Year</h5>
+                    {% if release_year['Released'] != "" %}
+                        <p>{{release_year['Released']}}</p>
+                    {% else %}
+                        {% for item in release_year %}
+                            {% if release_year[item] != "" %}
+                                <p>{{item}} {{release_year[item]}}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    <div class="col-6">
+
+        <!--    FORM ELEMENT -->
+            {% if game_on %}
+
+                <div class="text"><h5>{{text}}</h5></div>
+
+                <div id="guess_form" class="container-fluid">
+                    <div class="row">
+                        <div class="col-11">
+                            <form class="guess_form" method="post">
+                            <input value="guess a movie" name="guess" onfocus="this.value=''" id="guess" class="form-control">
+                        </div>
+
+                        <div class="col-1">
+                            <input type="submit" value="🎥" class="btn btn-secondary" href="{{ url_for('home')}}">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        <!-- GAME RESULTS: WHEN MOVIE IS GUESSED -->
+            {% if not game_on %}
+                <div class="text">
+                    <h3>You guessed the answer in {{guesses_made}} tries!</h3>
+                <p>
+                {% for number in range(0, guesses_made) %}
+                    <i id="results" class="fa-solid fa-film fa-5x fa-rotate-90"></i>
+                {% endfor %}
+                </p>
+                </div>
+            {% endif %}
+
+
+        <!-- SEARCH RESULTS ELEMENT -->
+            {% if options_exist %}
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-1 my-auto"><i id="slideLeft" class="fa-solid fa-chevron-left fa-2x"></i></div>
+                        <div class="col-10">
+                            <div class="options_element" id="options_element">
+                            {% for item in options %}
+                                <div class="movie_option">
+                                    <a href="{{ url_for('result', correct_result=item[3])}}"><img class="option-image" src="{{item[0]}}">
+                                    <p>{{item[1]}} ({{item[2]}})</p></a>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-1 my-auto"><i id="slideRight" class="fa-solid fa-chevron-right fa-2x"></i></div>
+
+                    </div>
+                </div>
+
+            {% endif %}
+
+    </div>
+
+    <!-- PREVIOUS GUESSES -->
+    <div class="col-3" id="previous_guesses">
+        <div class="text">
+            {% if guesses_list != 0 %}
+            <h5>Previously Guessed</h5>
+            <div class="guesses">
+                {% for item in guesses_list %}
+                    <p>{{item}}</p>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+<!-- FOOTER -->
+    <footer>
+    <nav class="navbar fixed-bottom navbar-light bg-light">    <div class="container">
+          <p>Made by <a href="http://kelseychristensen.com/" target="_blank">Kelsey Christensen</a></p>
+    </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+            const buttonRight = document.getElementById('slideRight');
+        const buttonLeft = document.getElementById('slideLeft');
+
+        buttonRight.onclick = function () {
+          document.getElementById('options_element').scrollLeft += 500;
+        };
+        buttonLeft.onclick = function () {
+          document.getElementById('options_element').scrollLeft -= 500;
+        };
+
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+
+    </footer>
+        </div>
+    </body>
+    </html>

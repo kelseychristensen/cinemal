@@ -22,15 +22,15 @@ Previously guessed movies are stored on the right side.
 ## Screenshots
 
 #### Step 1: Start Screen
-![Start](/read_me_imgs/start.PNG "start")
+![Start](/read_me_imgs/start.png "start")
 #### Step 2: Entering a guess, get search results
 ![results](/read_me_imgs/results.gif "results")
 #### Step 3: Select a result to make a guess, get first round of feedback
 ![selection](/read_me_imgs/selection.gif "selection")
 #### Feedback/stored info after several guesses
-![feedback](/read_me_imgs/feedback.PNG "feedback")
+![feedback](/read_me_imgs/feedback.png "feedback")
 #### Step 4: Win Screen
-![win](/read_me_imgs/win.PNG "win")
+![win](/read_me_imgs/win.png "win")
 
 ### Built with
 

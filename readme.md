@@ -1,7 +1,7 @@
 <h1 align="center">Cinemal Game</h1>
 
 <p align="center">
-Cinemal is Worlde-style movie-guessing game. 
+Cinemal is Wordle-style movie-guessing game. 
 
 Cinemal uses <a href="https://developer.themoviedb.org/reference/search-movie">The Movie Database API</a>
 to generate a new movie, which is the answer, each day. 

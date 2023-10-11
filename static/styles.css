@@ -1,0 +1,121 @@
+html body {
+    position: relative;
+}
+
+.page {
+    height: 100%;
+    margin: 2%
+}
+
+#main-content {
+    height: 80%;
+    margin: 2%;
+}
+
+/*TEXT STYLING*/
+
+h5 {
+    color: rgb(57, 55, 55, .8);
+}
+
+h5, #title, .text {text-align: center;}
+
+
+/*FEEDBACK*/
+
+.feedback {
+    text-align: center !important;
+    background: rgb(216, 226, 220, 0.5);
+    padding: 2%;
+    margin: 2%;
+}
+
+/*LEFT COLUMN -- HISTORIC FEEDBACK */
+
+#historic_feedback {
+    padding: 0;
+}
+
+.actors_identified {background: rgb(254, 197, 187, 0.5)}
+.directors_identified {background: rgb(254, 200, 154, 0.5)}
+.writers_identified {background: rgb(250, 237, 203, 0.5)}
+.studios_identified {background: rgb(193, 211, 254, 0.5)}
+.release_year {background: rgb(219, 205, 240, 0.5)}
+
+.actors_identified, .directors_identified, .writers_identified,
+.studios_identified, .release_year {
+    min-height: 12vh;
+    padding: 5%;
+    margin: 2% 0 2% 0;
+}
+
+/*MAIN COLUMN*/
+
+#guess_form {
+    padding: 2% 10%;
+}
+
+#guess_form > div > div.col-2 > button {
+    width:100%;
+}
+
+img {
+    width: 100%;
+}
+
+.options_element {
+    scroll-behavior: smooth;
+    padding-top: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.options_element::-webkit-scrollbar {
+  display: none;
+}
+
+.option-image {
+    flex: 0 0 auto;
+    height: 350px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.movie_option {
+    display: block;
+    float: left;
+    opacity: 90%;
+}
+
+.movie_option:hover {
+    opacity: 100%;
+}
+
+.col-1 i:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+#results {
+    color: #5e775e;
+    letter-spacing: -20px;
+}
+
+/*RIGHT COLUMN*/
+
+#previous_guesses {
+    padding: 0;
+}
+
+.guesses {
+    padding: 2%;
+}
+
+/*HOW TO PAGE*/
+
+.how-to {
+    padding: 2% 30%;
+}

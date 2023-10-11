@@ -9,17 +9,17 @@ class GetTodaysMovie:
         self.today = datetime.now().strftime("%m-%d-%Y")
         self.api_key = os.environ["API_KEY"]
 
-        with open("last_date.txt", mode="r") as file:
+        with open("api/last_date.txt", mode="r") as file:
             last_date = file.read()
 
         if self.today != last_date:
             movie = GenerateMovie()
             movie.get_movie()
 
-        with open("last_date.txt", mode="w") as file:
+        with open("api/last_date.txt", mode="w") as file:
             file.write(self.today)
 
-        with open("todays_movie.txt", mode="r") as file:
+        with open("api/todays_movie.txt", mode="r") as file:
             self.todays_movie_id = file.read()
 
         self.endpoint = f"https://api.themoviedb.org/3/movie/{self.todays_movie_id}"

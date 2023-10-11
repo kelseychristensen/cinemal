@@ -17,7 +17,7 @@ Previously guessed movies are stored on the right side.
 
 ## Links
 
-- [Repo](https://github.com/kelseychristensen/cinemal-master "Cinemal")
+- [Repo](https://github.com/kelseychristensen/cinemal "Cinemal")
 
 ## Screenshots
 

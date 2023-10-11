@@ -1,7 +1,7 @@
 <h1 align="center">Cinemal Game</h1>
 
 <p align="center">
-Cinemal is Worlde-style movie-guessing game. 
+Cinemal is Wordle-style movie-guessing game. 
 
 Cinemal uses <a href="https://developer.themoviedb.org/reference/search-movie">The Movie Database API</a>
 to generate a new movie, which is the answer, each day. 
@@ -17,20 +17,20 @@ Previously guessed movies are stored on the right side.
 
 ## Links
 
-- [Repo](https://github.com/kelseychristensen/cinemal-master "Cinemal")
+- [Repo](https://github.com/kelseychristensen/cinemal "Cinemal")
 
 ## Screenshots
 
 #### Step 1: Start Screen
-![Start](read_me_imgs/start.PNG "start")
+![Start](/read_me_imgs/start.png "start")
 #### Step 2: Entering a guess, get search results
-![results](read_me_imgs/results.gif "results")
+![results](/read_me_imgs/results.gif "results")
 #### Step 3: Select a result to make a guess, get first round of feedback
-![selection](read_me_imgs/selection.gif "selection")
+![selection](/read_me_imgs/selection.gif "selection")
 #### Feedback/stored info after several guesses
-![feedback](read_me_imgs/feedback.PNG "feedback")
+![feedback](/read_me_imgs/feedback.png "feedback")
 #### Step 4: Win Screen
-![win](read_me_imgs/win.PNG "win")
+![win](/read_me_imgs/win.png "win")
 
 ### Built with
 
